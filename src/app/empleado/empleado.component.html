@@ -1,11 +1,9 @@
-<p>Nombre: {{nombre}}</p>
-<p>Apellido: {{apellido}}</p>
-<p>Edad: {{edad<18 ? edad + "Menor de edad": edad + "Mayor de edad"}}</p>
-<p>Empresa: {{empresa.value}}</p>
-
-Introduce la empresa: <input type="text" #empresa (keyup)="0">
-<br/>
-<br/>
-
-Registrado: <input type="checkbox" id="registro" [checked]="usuarioRegistrado" (click)="showEmergentWindow()"/>
-{{setRegistroUsuario()}}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div >
+               {{indice+1}} : {{listEmpleados.nombre}}  {{listEmpleados.apellido}} {{listEmpleados.cargo}} {{listEmpleados.salario}}
+            </div>
+        </div>
+    </div>
+</div>

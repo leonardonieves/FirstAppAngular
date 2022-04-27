@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Empleado } from './empleado.model';
 
 @Component({
   selector: 'app-empleado',
@@ -7,25 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpleadoComponent implements OnInit {
 
-  nombre = "Juan";
-  apellido = "Gonzalez";
-  edad= 83;
-  empresa= "NTSprint";
-  usuarioRegistrado = true;
+  @Input() listEmpleados:Empleado;
+  @Input() indice:number;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  setRegistroUsuario(){
-    this.usuarioRegistrado = !this.usuarioRegistrado;
-    console.info(this.usuarioRegistrado);
-  }
-
-  showEmergentWindow(){
-    alert("Usuario ha sido registrado");
-  }
-  
+  }  
 
 }
