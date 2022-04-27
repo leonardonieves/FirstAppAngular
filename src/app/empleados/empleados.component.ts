@@ -24,6 +24,8 @@ export class EmpleadosComponent implements OnInit {
   campoApellido:string="";
   campoCargo:string="";
   campoSalario:number=0;
+  
+
   constructor() { }
 
   ngOnInit(): void {
