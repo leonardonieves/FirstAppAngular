@@ -18,4 +18,22 @@ export class EmpleadosService {
   addEmpleadoService(empleado:Empleado){
     this.empleados.push(empleado);
   }
+
+  FindEmpleado(id:number){
+    let empleado:Empleado=this.empleados[id];
+    return empleado;
+  }
+
+  updateEmpleadoService(id:number, updateEmpleado:Empleado){
+    let empleado:Empleado=this.empleados[id];
+    empleado.nombre=updateEmpleado.nombre;
+    empleado.apellido=updateEmpleado.apellido;
+    empleado.cargo=updateEmpleado.cargo;
+    empleado.salario=updateEmpleado.salario;
+  }
+
+  deleteEmpleadoService(id:number){
+    this.empleados.splice(id,1);
+
+  }
 }

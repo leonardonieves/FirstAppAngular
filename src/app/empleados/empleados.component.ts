@@ -21,7 +21,7 @@ export class EmpleadosComponent implements OnInit {
   campoSalario:number=0;
   
 
-  constructor(private service:EmpleadosService,) { 
+  constructor(private service:EmpleadosService) { 
     //this.empleados=this.service.empleados;
   }
   empleados:Empleado[]=[];
