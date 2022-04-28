@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from '../empleado/empleado.model';
+import { EmpleadosService } from '../empleados.service';
 
 @Component({
   selector: 'app-empleados',
@@ -8,16 +9,10 @@ import { Empleado } from '../empleado/empleado.model';
 })
 export class EmpleadosComponent implements OnInit {
 
-  empleados: Empleado[]= [
-    new Empleado("Juan", "Gonzalez","Director",1000),
-    new Empleado("Pepe", "Gonzalez","Director Adjunto",900),
-    new Empleado("Julio", "Gonzalez","Tecnico",800),
-    new Empleado("Lorenzo", "Gonzalez","Secretario",700),
-  ];
 
   AddEmpleado(){
     let empleado=new Empleado(this.campoNombre,this.campoApellido,this.campoCargo,this.campoSalario);
-    this.empleados.push(empleado);
+    this.service.addEmpleadoService(empleado);
   }
 
   campoNombre:string="";
@@ -26,9 +21,13 @@ export class EmpleadosComponent implements OnInit {
   campoSalario:number=0;
   
 
-  constructor() { }
+  constructor(private service:EmpleadosService,) { 
+    //this.empleados=this.service.empleados;
+  }
+  empleados:Empleado[]=[];
 
   ngOnInit(): void {
+    this.empleados=this.service.empleados;
   }
 
 }
