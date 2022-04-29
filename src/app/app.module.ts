@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmpleadosComponent } from './empleados/empleados.component';
@@ -13,6 +13,7 @@ import { ProjectsComponentComponent } from './projects-component/projects-compon
 import { ContactComponentComponent } from './contact-component/contact-component.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UpdateEmpleadoComponent } from './update-empleado/update-empleado.component';
+import { DataService } from './data.service';
 
 const appRoutes:Routes=[
 
@@ -38,10 +39,12 @@ const appRoutes:Routes=[
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [
-    EmpleadosService
+    EmpleadosService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

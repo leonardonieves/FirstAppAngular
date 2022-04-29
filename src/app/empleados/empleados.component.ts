@@ -27,7 +27,11 @@ export class EmpleadosComponent implements OnInit {
   empleados:Empleado[]=[];
 
   ngOnInit(): void {
-    this.empleados=this.service.empleados;
+    //this.empleados=this.service.empleados;
+    this.service.getEmpleados().subscribe(allEmpleados=>{
+      this.empleados=Object.values(allEmpleados);
+      this.service.setEmpleados(this.empleados);
+    });
   }
 
 }
