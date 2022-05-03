@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div >
-                <a [routerLink]="['/update',indice]">
-                    {{indice+1}} : {{listEmpleados.nombre}}  {{listEmpleados.apellido}} {{listEmpleados.cargo}} {{listEmpleados.salario}}
-                </a>
+            <div >                
+                {{indice+1}} : {{listEmpleados.nombre}}  {{listEmpleados.apellido}} {{listEmpleados.cargo}} {{listEmpleados.salario}}
+                <a [routerLink]="['/update',indice]" [queryParams]="{action:1}">Update</a>&nbsp;&nbsp;
+                <a [routerLink]="['/update',indice]" [queryParams]="{action:2}">Delete</a>
             </div>
             <app-caracteristicas-empleado-c (caractEmpleado)="addCaracteristica($event)"></app-caracteristicas-empleado-c>
         

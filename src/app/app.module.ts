@@ -14,6 +14,13 @@ import { ContactComponentComponent } from './contact-component/contact-component
 import { RouterModule, Routes } from '@angular/router';
 import { UpdateEmpleadoComponent } from './update-empleado/update-empleado.component';
 import { DataService } from './data.service';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { empleadosReducer } from './state/reducers/empleados.reducers';
+import { ROOT_REDUCERS } from './state/app.state';
+import { EffectsModule } from '@ngrx/effects';
+import { EmpleadosEffects } from './state/effects/empleados.effects';
 
 const appRoutes:Routes=[
 
@@ -40,7 +47,10 @@ const appRoutes:Routes=[
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(ROOT_REDUCERS),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([EmpleadosEffects])
   ],
   providers: [
     EmpleadosService,

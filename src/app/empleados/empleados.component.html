@@ -32,4 +32,4 @@
     </div>
 </div>
 <br><br>
-<app-empleado *ngFor="let empleado of empleados; let i = index" [listEmpleados]="empleado" [indice]="i"></app-empleado>
+<app-empleado *ngFor="let empleado of empleados$|async; let i = index" [listEmpleados]="empleado" [indice]="i"></app-empleado>
